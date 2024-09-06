@@ -1,0 +1,48 @@
+{
+	"workbench.colorTheme": "GitHub Dark Default",
+	"files.autoSave": "afterDelay",
+	"[css]": {
+	  "editor.defaultFormatter": "michelemelluso.code-beautifier"
+	},
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"explorer.confirmDragAndDrop": false,
+	"explorer.confirmDelete": false,
+	"[scss]": {
+	  "editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescriptreact]": {
+	  "editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+	  "editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+	  "editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	"[json]": {
+	  "editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"kite.showWelcomeNotificationOnStartup": false,
+	"[jsonc]": {
+	  "editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"prettier.printWidth": 100,
+	"prettier.jsxSingleQuote": true,
+	"prettier.singleQuote": true,
+	"eslint.enable": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": [
+	  "source.formatDocument",
+	  "source.fixAll.eslint",
+	  "source.prettier.forceFormatDocument",
+	],
+	"bracketPairColorizer.depreciation-notice": false,
+	"eslint.notebooks.rules.customizations": [],
+	"editor.insertSpaces": false,
+	"eslint.alwaysShowStatus": true,
+	"files.eol": "\r\n",
+	"security.workspace.trust.untrustedFiles": "open",
+	"git.confirmSync": false,
+	"task.slowProviderWarning": true,
+	"eslint.codeActionsOnSave.rules": null
+  }
