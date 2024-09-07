@@ -140,3 +140,101 @@ export const BookingIcon= ({color = "#004D4D", ...props}) => (
     />
   </Svg>
 );
+
+export const  BackIcon=({ strokeColor = '#051359', width = 30, height = 30 }) =>(
+    <Svg
+      width={width}
+      height={height}
+      viewBox="0 0 26 27"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <G clip-path="url(#clip0_2159_3092)">
+        <Path
+          d="M21.9375 13.5H4.0625"
+          stroke={strokeColor}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <Path
+          d="M11.375 6.1875L4.0625 13.5L11.375 20.8125"
+          stroke={strokeColor}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </G>
+      <Defs>
+        <ClipPath id="clip0_2159_3092">
+          <Rect width="26" height="26" fill="white" transform="translate(0 0.5)" />
+        </ClipPath>
+      </Defs>
+    </Svg>
+  );
+
+export const MinusIcon=({ fillColor = '#4575E5', strokeColor = 'white', size = 90 }) =>
+     (
+      <Svg
+        width={size}
+        height={size}
+        viewBox="0 0 59 59"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <Path
+          d="M0 8C0 3.58172 3.58172 0 8 0H51C55.4183 0 59 3.58172 59 8V51C59 55.4183 55.4183 59 51 59H8C3.58172 59 0 55.4183 0 51V8Z"
+          fill={fillColor}
+        />
+        <G clipPath="url(#clip0_2587_13119)">
+          <Path
+            d="M23.125 30H36.875"
+            stroke={strokeColor}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </G>
+        <Defs>
+          <ClipPath id="clip0_2587_13119">
+            <Rect width="20" height="20" fill="white" transform="translate(20 20)" />
+          </ClipPath>
+        </Defs>
+      </Svg>
+    );
+
+export const  PlusIcon=({ fillColor = '#4575E5', strokeColor = 'white', size = 90 })=>(
+    <Svg
+      width={size}
+      height={size}
+      viewBox="0 0 59 59"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <Path
+        d="M59 8C59 3.58172 55.4183 0 51 0H8C3.58172 0 0 3.58172 0 8V51C0 55.4183 3.58172 59 8 59H51C55.4183 59 59 55.4183 59 51V8Z"
+        fill={fillColor}
+      />
+      <G clipPath="url(#clip0_2587_13125)">
+        <Path
+          d="M23.125 30H36.875"
+          stroke={strokeColor}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <Path
+          d="M30 23.125V36.875"
+          stroke={strokeColor}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </G>
+      <Defs>
+        <ClipPath id="clip0_2587_13125">
+          <Rect width="20" height="20" fill={strokeColor} transform="translate(20 20)" />
+        </ClipPath>
+      </Defs>
+    </Svg>
+  );

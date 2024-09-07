@@ -10,6 +10,8 @@ import Home from './src/pages/Home';
 import SearchPage from './src/pages/SearchPage';
 import ProfilePage from './src/pages/Profile';
 import Bookings from './src/pages/Bookings';
+import SetPath from './src/pages/SetPath';
+import LookRidePath from './src/pages/LookRidePath';
 // import HomeScreen from './HomeScreen'; // We'll create this next
 
 const Stack = createStackNavigator();
@@ -52,6 +54,16 @@ function App() {
           <Stack.Screen
             name="Bookings"
             component={Bookings}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="SetPath"
+            component={SetPath}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="LookRidePath"
+            component={LookRidePath}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

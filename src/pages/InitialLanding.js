@@ -48,7 +48,7 @@ const InitialLanding = ({navigation}) => {
           }}
         >
           <Text style={styles.versionNumber}>
-            Version {versionNumber} {(buildNumber)}
+            Version {versionNumber}{(buildNumber)}
           </Text>
         </View>
 		<View style={styles.loginButton}>

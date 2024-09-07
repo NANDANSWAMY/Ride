@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
 		paddingLeft: 0,
 	},
 	locationText: {
-		fontFamily: 'Mulish-Regular',
 		color: '#051359',
 		fontSize: 16,
 		lineHeight: 24,
