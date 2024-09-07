@@ -32,6 +32,13 @@ const defaultStyles = StyleSheet.create({
   plainBoldFont: {
     fontWeight: '700'
   },
+  footerMenu:{
+		bottom: Platform.OS === 'android' ? 15 : 25,
+		position: 'absolute',
+		// paddingLeft: 23,
+		// paddingRight: 23,
+		width:'100%'
+	}
   
 });
 export default defaultStyles

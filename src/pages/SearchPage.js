@@ -1,9 +1,10 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
-import {View, Text, TextInput, StyleSheet, FlatList} from 'react-native';
+import {View, Text, TextInput, StyleSheet, FlatList, Platform} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-
-const SearchPage = () => {
+import FooterMenu from '../components/FooterMenu'
+import defaultStyles from '../utilities/defaultStyles';
+const SearchPage = ({navigation}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -19,7 +20,12 @@ const SearchPage = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <>
+   <SafeAreaView
+        style={{flex: 0, backgroundColor: '#B3E5FC'}}
+        edges={['top']}
+      />
+      <View style={styles.container}>
       <Text style={styles.header}>Search</Text>
       <TextInput
         style={styles.searchInput}
@@ -34,7 +40,13 @@ const SearchPage = () => {
           <Text style={styles.resultItem}>{item.title}</Text>
         )}
       />
-    </SafeAreaView>
+      
+    </View>
+    <View style={defaultStyles.footerMenu}>
+			<FooterMenu navigation={navigation}/>
+		</View>
+    
+    </>
   );
 };
 
@@ -61,6 +73,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#99FFFF',
   },
+  footerMenu:{
+		bottom: Platform.OS === 'android' ? 15 : 25,
+		position: 'absolute',
+		// paddingLeft: 23,
+		// paddingRight: 23,
+		width:'100%'
+	  }
 });
 
 export default SearchPage;

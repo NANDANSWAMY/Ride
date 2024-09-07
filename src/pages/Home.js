@@ -28,7 +28,7 @@ const Home = ({navigation}) => {
     <>
       <StatusBar
         hidden={false}
-        backgroundColor={'#000080'}
+        backgroundColor={'#B3E5FC'}
         barStyle={'light-content'}
       />
       <SafeAreaView
@@ -58,7 +58,7 @@ const Home = ({navigation}) => {
 			</View>
 
 		</View>
-		<View style={styles.footerMenu}>
+		<View style={defaultStyles.footerMenu}>
 			<FooterMenu navigation={navigation}/>
 		</View>
 		
@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
 	container:{
 		marginLeft:20,
 		marginTop:30,
-		marginRight:20
+		marginRight:20,
+		backgroundColor: '#CCFFFF',
 
 	},
 	nameLoc: {
@@ -87,11 +88,5 @@ const styles = StyleSheet.create({
 		// paddingBottom: 10,
 		// fontWeight: '400',
 	},
-	footerMenu:{
-		bottom: Platform.OS === 'android' ? 15 : 25,
-		position: 'absolute',
-		// paddingLeft: 23,
-		// paddingRight: 23,
-		width:'100%'
-	  }
+	
 });

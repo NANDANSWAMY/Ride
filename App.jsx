@@ -8,6 +8,8 @@ import Homepage from './src/pages/Homepage';
 import InitialLanding from './src/pages/InitialLanding';
 import Home from './src/pages/Home';
 import SearchPage from './src/pages/SearchPage';
+import ProfilePage from './src/pages/Profile';
+import Bookings from './src/pages/Bookings';
 // import HomeScreen from './HomeScreen'; // We'll create this next
 
 const Stack = createStackNavigator();
@@ -40,6 +42,16 @@ function App() {
           <Stack.Screen
             name="SearchPage"
             component={SearchPage}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="ProfilePage"
+            component={ProfilePage}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Bookings"
+            component={Bookings}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

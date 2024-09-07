@@ -2,58 +2,62 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import { HomeIcon, SearchIcon, ProfileIcon, BookingIcon } from '../assets/Icons';
 
 const FooterMenu = ({navigation}) => {
   return (
-    <SafeAreaView edges={['bottom']} style={styles.safeArea}>
+    // <SafeAreaView edges={} style={styles.safeArea}>
+    <>
       <View style={styles.footer}>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('Home')}>
-          <Text style={styles.buttonText}>Home</Text>
+          <HomeIcon/>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('SearchPage')}>
-          <Text style={styles.buttonText}>Search</Text>
+          <SearchIcon/>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('Bookings')}>
-          <Text style={styles.buttonText}>Bookings</Text>
+          <BookingIcon/>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('Profile')}>
-          <Text style={styles.buttonText}>Profile</Text>
+          onPress={() => navigation.navigate('ProfilePage')}>
+          <ProfileIcon/>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 export default FooterMenu;
 
 const styles = StyleSheet.create({
-  safeArea: {
-    backgroundColor: '#B3E5FC',
-  },
+
   footer: {
+    flex:1,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#B3E5FC',
+    // alignSelf:'center',
+    backgroundColor: '#FFF',
+    // alignContent:'center',
     height: 60,
-    borderTopWidth: 1,
-    borderTopColor: '#99FFFF',
+    
+    // marginLeft:
+    // width:'100%',
   },
   button: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // marginBottom:10
+    // flex: 1,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // paddingVertical:-10
   },
   buttonText: {
-    color: '#004D4D',
-    fontFamily: 'Mulish-Bold',
-    fontSize: 12,
+ 
   },
 });
