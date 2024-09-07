@@ -92,10 +92,11 @@ const LookRidePath = ({navigation, route}) => {
             mode="datetime"
             onConfirm={handleConfirm}
             onCancel={hideDatePicker}
+            minimumDate={new Date()} 
           />
           <Text style={styles.selectedDateText}>
             {selectedDate instanceof Date ? selectedDate.toLocaleString() : 'No date selected'}
-          </Text>
+        </Text>
         </View>
         
         <ScrollView contentContainerStyle={styles.scrollView}>

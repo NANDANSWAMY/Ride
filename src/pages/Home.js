@@ -1,91 +1,159 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable prettier/prettier */
-import React, {useState, useEffect, useContext, useReducer} from 'react';
+import React from 'react';
 import {
   Text,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   View,
-  Platform,
-  Linking,
-  BackHandler,
+  StatusBar,
+  TouchableOpacity,
+  ScrollView,
 } from 'react-native';
-import DeviceInfo from 'react-native-device-info';
-import defaultStyles from '../utilities/defaultStyles';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import { getInitials } from '../utilities/helpers';
-import FooterMenu from '../components/FooterMenu'
+import {getInitials} from '../utilities/helpers';
+import FooterMenu from '../components/FooterMenu';
+
 const Home = ({navigation}) => {
-  const versionNumber = DeviceInfo.getVersion();
-//   const buildNumber = DeviceInfo.getBuildNumber();
-  console.log(versionNumber);
-  const userDetails={
-	"userFullName":"Nandan Krishnappa"
-  }
+  const userDetails = {
+    userFullName: 'Nandan Krishnappa',
+  };
+
+  const stats = [
+    {label: 'Total Users', value: '10,000'},
+    {label: 'Live Riders', value: '250'},
+    {label: 'Live Tag Alongs', value: '180'},
+    {label: 'Users Nearby', value: '50'},
+    {label: 'Trips Completed', value: '5,000'},
+    {label: 'Avg. Riders/Trip', value: '3'},
+    {label: 'Total Credits Earned', value: '1,200'},
+    {label: 'Total KMS Covered', value: '15,000'},
+	{label:'Footscray Train Station', value:'Most common pick up point'},
+	{label:'Ballarat Train Station', value:'Most common drop point'}
+  ];
+
+  const StatBox = ({label, value}) => (
+    <TouchableOpacity style={styles.statBox}>
+      <Text style={styles.statValue}>{value}</Text>
+      <Text style={styles.statLabel}>{label}</Text>
+    </TouchableOpacity>
+  );
 
   return (
     <>
+	{/* <SafeAreaView style={styles.container} /> */}
       <StatusBar
-        hidden={false}
-        backgroundColor={'#B3E5FC'}
-        barStyle={'light-content'}
+        translucent
+        backgroundColor="transparent"
+        barStyle="dark-content"
       />
-      <SafeAreaView
-        style={{flex: 0, backgroundColor: '#B3E5FC'}}
-        edges={['top']}
-      />
-	  	<View style={styles.container}>
-			<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-				<Text style={[defaultStyles.plainBoldFont, defaultStyles.h1Font]}>Hi, Nandan</Text>
-				<View style={{ flex: 1 }}></View>
-				<View
-				style={{
-					width: 45,
-					height: 45,
-					borderRadius: 30,
-					borderWidth: 1.5,
-					borderColor: '#004D4D',
-					backgroundColor: '#AFEEEE',
-					justifyContent: 'center',
-					alignItems: 'center',
-				}}
-				>
-				<Text style={{ fontFamily: 'Mulish-Bold', fontSize: 12, lineHeight: 19.2, color:'004D4D' }}>
-					{getInitials(userDetails.userFullName)}
-				</Text>
-				</View>
-			</View>
+      {/*  */}
+      <View style={styles.header}>
+        <View>
+          <Text style={styles.greeting}>Welcome back,</Text>
+          <Text style={styles.name}>{userDetails.userFullName}</Text>
+        </View>
+        <TouchableOpacity style={styles.profileButton}>
+          <Text style={styles.profileInitials}>
+            {getInitials(userDetails.userFullName)}
+          </Text>
+        </TouchableOpacity>
+      </View>
 
-		</View>
-		<View style={defaultStyles.footerMenu}>
-			<FooterMenu navigation={navigation}/>
-		</View>
-		
-	
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <Text style={styles.statsTitle}>App Statistics</Text>
+
+        <View style={styles.statsContainer}>
+          {stats.map((stat, index) => (
+            <StatBox key={index} label={stat.label} value={stat.value} />
+          ))}
+        </View>
+      </ScrollView>
+
+      <View style={styles.footerMenu}>
+        <FooterMenu navigation={navigation} />
+      </View>
     </>
   );
 };
-export default Home
-const styles = StyleSheet.create({
-	container:{
-		marginLeft:20,
-		marginTop:30,
-		marginRight:20,
-		backgroundColor: '#CCFFFF',
 
-	},
-	nameLoc: {
-		paddingTop: '10%',
-		paddingLeft: 0,
-	},
-	locationText: {
-		color: '#051359',
-		fontSize: 16,
-		lineHeight: 24,
-		paddingTop: 16,
-		// paddingBottom: 10,
-		// fontWeight: '400',
-	},
-	
+const styles = StyleSheet.create({
+  container: {
+    // flex: 1,
+    backgroundColor: '#E1F5FE', // Light blue background color
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 50,
+    marginBottom: 30,
+    paddingHorizontal: 20,
+  },
+  greeting: {
+    fontSize: 16,
+    color: '#004D4D',
+  },
+  name: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#004D4D',
+  },
+  profileButton: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: '#004D4D',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  profileInitials: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  scrollContent: {
+    paddingHorizontal: 20,
+    paddingBottom: 100, // Space for footer
+  },
+  statsTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#004D4D',
+    marginBottom: 15,
+  },
+  statsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  statBox: {
+    width: '48%',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 15,
+    padding: 15,
+    marginBottom: 15,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  statValue: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#004D4D',
+    marginBottom: 5,
+  },
+  statLabel: {
+    fontSize: 14,
+    color: '#666666',
+  },
+  footerMenu: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#FFFFFF',
+    padding: 10,
+  },
 });
+
+export default Home;

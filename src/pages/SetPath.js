@@ -79,6 +79,7 @@ const SetPath = ({navigation, route}) => {
             mode="datetime"
             onConfirm={handleConfirm}
             onCancel={hideDatePicker}
+            
           />
           <Text style={styles.selectedDateText}>
             {selectedDate instanceof Date ? selectedDate.toLocaleString() : 'No date selected'}

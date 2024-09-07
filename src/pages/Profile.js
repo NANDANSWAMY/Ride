@@ -10,7 +10,7 @@ import {
 import {SafeAreaView} from 'react-native-safe-area-context';
 import FooterMenu from '../components/FooterMenu';
 import defaultStyles from '../utilities/defaultStyles';
-
+import { getInitials } from '../utilities/helpers';
 const ProfilePage = ({navigation}) => {
   const userDetails = {
     name: 'Nandan Krishnappa',
@@ -48,10 +48,34 @@ const ProfilePage = ({navigation}) => {
         <Text style={styles.dateRegistered}>
           Member since: {userDetails.dateRegistered}
         </Text>
+        <View style={{display:'flex', flexDirection:'row', backgroundColor: '#FFFFFF', padding: 20,
+    borderRadius: 15,
+    marginBottom: 20,
+    elevation: 3,
+    alignItems:'center'
+    }}>
         <View style={styles.profileInfo}>
           <Text style={styles.name}>{userDetails.name}</Text>
           <Text style={styles.detail}>{userDetails.email}</Text>
           <Text style={styles.detail}>{userDetails.phone}</Text>
+        </View>
+        <View style={{flex:1}}></View>
+        <View
+				style={{
+					width: 100,
+					height: 100,
+					borderRadius: 50,
+					borderWidth: 1.5,
+					borderColor: '#004D4D',
+					backgroundColor: '#AFEEEE',
+					justifyContent: 'center',
+					alignItems: 'center',
+				}}
+				>
+				<Text style={{ fontFamily: 'Mulish-Bold', fontSize: 42, lineHeight: 49.2, color:'004D4D' }}>
+					{getInitials(userDetails.name)}
+				</Text>
+				</View>
         </View>
         <ScrollView style={{}}>
           <View style={styles.statsContainer}>
@@ -90,12 +114,15 @@ const ProfilePage = ({navigation}) => {
             />
           </View>
 
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Edit Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Change Password</Text>
-          </TouchableOpacity>
+          <TouchableOpacity style={[styles.button, styles.editProfileButton]}>
+        <Text style={styles.buttonText}>Edit Profile</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.button, styles.changePasswordButton]}>
+        <Text style={styles.buttonText}>Change Password</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.button, styles.linkPTVButton]}>
+        <Text style={styles.buttonText}>Link My PTV</Text>
+      </TouchableOpacity>
           <TouchableOpacity
             style={[styles.button, styles.logoutButton]}
             onPress={() =>
@@ -134,11 +161,18 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   profileInfo: {
-    backgroundColor: '#FFFFFF',
-    padding: 20,
-    borderRadius: 15,
-    marginBottom: 20,
-    elevation: 3,
+    
+    // padding: 20,
+    
+  },
+  editProfileButton: {
+    backgroundColor: '#004D4D', // Dark green for Edit Profile
+  },
+  changePasswordButton: {
+    backgroundColor: '#00796B', // Teal for Change Password
+  },
+  linkPTVButton: {
+    backgroundColor: '#00ACC1', // Light blue for Link My PTV
   },
   name: {
     fontSize: 22,
