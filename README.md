@@ -1,4 +1,72 @@
-# Please use master branch
+# React Native Project
+
+A mobile application built with [React Native](https://reactnative.dev/). This project is designed to work on both Android and iOS platforms.
+
+## Features
+
+- Feature 1: Example feature description
+- Feature 2: Example feature description
+- Feature 3: Example feature description
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Running the App](#running-the-app)
+- [Xcode Setup](#xcode-setup)
+- [Android Studio Setup](#android-studio-setup)
+- [Troubleshooting](#troubleshooting)
+
+## Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+npm install
+```
+## Running the App
+
+Clone the repository and install dependencies:
+
+```bash
+npx react-native start
+```
+To run on iOS
+
+```bash
+npx react-native run-ios
+```
+To run on android
+
+```bash
+npx react-native run-android
+```
+
+## Xcode Setup
+
+1. Install Xcode from the Mac App Store.
+2. Install Xcode Command Line Tools by running:
+
+```bash
+xcode-select --install
+```
+3. Open the project in Xcode by double-clicking the ios/YourProjectName.xcworkspace file.
+
+## Android Studio Setup
+
+1. Download and install Android Studio.
+2. Install the Android SDK and necessary tools through the SDK Manager in Android Studio.
+3. Set up an Android Virtual Device (AVD) for testing.
+
+## Troubleshooting
+1. If you encounter node_modules related issues, try deleting the folder and running npm install again.
+2. For iOS build issues, try cleaning the build folder in Xcode and rebuilding.
+3. For Android build issues, try cleaning the project in Android Studio and rebuilding.
+4. 
+
+
+
 
 <figure>
   <img src="1.png" alt="Login Page" width="400" height="800">
