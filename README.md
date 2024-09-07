@@ -15,7 +15,10 @@ A mobile application built with [React Native](https://reactnative.dev/). This p
 - [Xcode Setup](#xcode-setup)
 - [Android Studio Setup](#android-studio-setup)
 - [Troubleshooting](#troubleshooting)
+- [Dependencies](#dependencies)
+- [Prerequisites](#prerequisites)
 - [Screenshots](#screenshots)
+
 
 ## Installation
 
@@ -59,11 +62,29 @@ xcode-select --install
 1. Download and install Android Studio.
 2. Install the Android SDK and necessary tools through the SDK Manager in Android Studio.
 3. Set up an Android Virtual Device (AVD) for testing.
+4. If using an actual phone, ensure developer mode is turned on. 
 
 ## Troubleshooting
 1. If you encounter node_modules related issues, try deleting the folder and running npm install again.
 2. For iOS build issues, try cleaning the build folder in Xcode and rebuilding.
 3. For Android build issues, try cleaning the project in Android Studio and rebuilding.
+
+## Dependencies
+- react-native: ^0.70.0
+- react: 18.2.0
+
+## Prerequisites
+
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (which includes npm)
+- [React Native CLI](https://reactnative.dev/docs/environment-setup)
+- [Cocoapods](https://guides.cocoapods.org/using/getting-started.html)
+- [Ruby](https://mac.install.guide/ruby/13)
+
+To install React Native CLI globally, run:
+```bash
+npm install -g react-native-cli
+```
 
 ## Screenshots
 
