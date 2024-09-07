@@ -4,6 +4,7 @@ import {View, Text, FlatList, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import FooterMenu from '../components/FooterMenu';
 import defaultStyles from '../utilities/defaultStyles';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const BookingsPage = ({navigation}) => {
   const riderBookings = [
@@ -120,28 +121,35 @@ const BookingsPage = ({navigation}) => {
   ];
 
   const tagAlongBookings = [
-    {id: '1', driver: 'Alice', from: 'South Yarra', to: 'Prahran', rating: 4.5, date: '2023-09-12', time: '08:30'},
-    {id: '2', driver: 'Bob', from: 'Caulfield', to: 'Malvern', rating: 5, date: '2023-09-17', time: '13:45'},
-    {id: '3', driver: 'Charlie', from: 'Box Hill', to: 'Blackburn', rating: 4, date: '2023-09-22', time: '10:20'},
+    {id: '1', driver: 'Alice', from: 'South Yarra', to: 'Prahran', rating: 4.5, date: '2023-09-12', time: '08:30', distance: 10},
+    {id: '2', driver: 'Bob', from: 'Caulfield', to: 'Malvern', rating: 5, date: '2023-09-17', time: '13:45', distance: 15},
+    {id: '3', driver: 'Charlie', from: 'Box Hill', to: 'Blackburn', rating: 4, date: '2023-09-22', time: '10:20', distance: 20},
+    {id: '4', driver: 'Diana', from: 'Richmond', to: 'Hawthorn', rating: 4.8, date: '2023-09-25', time: '09:15', distance: 12},
+    {id: '5', driver: 'Ethan', from: 'St Kilda', to: 'Elwood', rating: 4.2, date: '2023-09-28', time: '14:00', distance: 8},
+    {id: '6', driver: 'Fiona', from: 'Fitzroy', to: 'Carlton', rating: 4.7, date: '2023-10-01', time: '11:30', distance: 5},
+    {id: '7', driver: 'George', from: 'Doncaster', to: 'Templestowe', rating: 4.4, date: '2023-10-05', time: '16:45', distance: 18},
+    {id: '8', driver: 'Hannah', from: 'Camberwell', to: 'Glen Iris', rating: 4.9, date: '2023-10-08', time: '07:50', distance: 7},
+    {id: '9', driver: 'Ian', from: 'Footscray', to: 'Yarraville', rating: 4.1, date: '2023-10-12', time: '12:10', distance: 6},
+    {id: '10', driver: 'Julia', from: 'Brighton', to: 'Hampton', rating: 4.6, date: '2023-10-15', time: '15:20', distance: 9}
   ];
 
   const renderRiderItem = ({item}) => (
     <View style={styles.bookingItem}>
       <Text style={styles.bookingTitle}>From {item.from} to {item.to}</Text>
       <Text style={styles.bookingDetail}>Passengers: {item.passengers}</Text>
-      <Text style={styles.bookingDetail}>Rating: {item.rating}/5</Text>
-      <Text style={styles.bookingDetail}>Distance: {item.kmsTravel} km</Text>
+      <Text style={styles.bookingDetail}>Rating received: {item.rating}/5</Text>
+      <Text style={styles.bookingDetail}>Distance covered: {item.kmsTravel} km</Text>
       <Text style={styles.bookingDetail}>Credits Earned: {item.creditsEarned}</Text>
-      <Text style={styles.bookingDate}>{item.date} - Completed at {item.tripCompletedTime}</Text>
+      <Text style={styles.bookingDate}>Date: {item.date} | Completed at {item.tripCompletedTime}</Text>
     </View>
   );
 
   const renderTagAlongItem = ({item}) => (
     <View style={styles.bookingItem}>
       <Text style={styles.bookingTitle}>From {item.from} to {item.to}</Text>
-      <Text style={styles.bookingDetail}>Driver: {item.driver}</Text>
-      <Text style={styles.bookingDetail}>Rating: {item.rating}/5</Text>
-      <Text style={styles.bookingDate}>{item.date} at {item.time}</Text>
+      <Text style={styles.bookingDetail}>Driver name: {item.driver}</Text>
+      <Text style={styles.bookingDetail}>Rating given: {item.rating}/5</Text>
+      <Text style={styles.bookingDate}>Date:{item.date} | Completed at {item.time}</Text>
     </View>
   );
 
@@ -154,19 +162,22 @@ const BookingsPage = ({navigation}) => {
       <View style={styles.container}>
         <Text style={styles.header}>Your Booking History</Text>
         
+        
         <Text style={styles.subHeader}>As a Rider</Text>
         <FlatList
           data={riderBookings}
           keyExtractor={item => item.id}
           renderItem={renderRiderItem}
         />
-        
+       
         <Text style={styles.subHeader}>As a Tag Along</Text>
+        <ScrollView style={{marginBottom:70,}}>
         <FlatList
           data={tagAlongBookings}
           keyExtractor={item => item.id}
           renderItem={renderTagAlongItem}
         />
+        </ScrollView>
       </View>
    
       <View style={defaultStyles.footerMenu}>

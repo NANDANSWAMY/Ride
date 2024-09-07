@@ -7,7 +7,12 @@ import MapView, {Marker, Polyline} from 'react-native-maps';
 import axios from 'axios';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import polyline from '@mapbox/polyline';
-const API_KEY = ''; // Replace with your actual API key
+import configData from '../../config.json'
+
+
+// Replace the hardcoded API key with the imported variable
+const API_KEY =configData.API_KEY;
+
 
 const HomePage = ({navigation}) => {
 	const [startLocation, setStartLocation] = useState('');

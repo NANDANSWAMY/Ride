@@ -28,20 +28,21 @@ const LookRidePath = ({navigation, route}) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [selectedBooking, setSelectedBooking] = useState(null);
+    const [showTrips, setShowTrips] = useState(false)
     const showDatePicker = () => {
       setDatePickerVisibility(true);
     };
     const bookings = [
-      {id: '1', username: 'Alice', trips: 15, passengers: 35, from: 'Flinders Street', to: 'Southern Cross', spots: 3, timeDiff: '5 mins', date: '2023-09-10 14:30'},
-      {id: '2', username: 'Bob', trips: 8, passengers: 20, from: 'Richmond', to: 'Southern Cross', spots: 2, timeDiff: '10 mins', date: '2023-09-11 09:45'},
-      {id: '3', username: 'Charlie', trips: 22, passengers: 48, from: 'Melbourne Central', to: 'Southern Cross', spots: 1, timeDiff: '-5 mins', date: '2023-09-12 11:15'},
-      {id: '4', username: 'Diana', trips: 5, passengers: 12, from: 'North Melbourne', to: 'Southern Cross', spots: 4, timeDiff: '5 mins', date: '2023-09-13 16:00'},
-      {id: '5', username: 'Ethan', trips: 12, passengers: 28, from: 'South Yarra', to: 'Southern Cross', spots: 2, timeDiff: '-5 mins', date: '2023-09-14 08:30'},
-      {id: '6', username: 'Fiona', trips: 18, passengers: 40, from: 'Caulfield', to: 'Southern Cross', spots: 3, timeDiff: '10 mins', date: '2023-09-15 13:45'},
-      {id: '7', username: 'George', trips: 7, passengers: 15, from: 'Box Hill', to: 'Southern Cross', spots: 1, timeDiff: '5 mins', date: '2023-09-16 10:20'},
-      {id: '8', username: 'Hannah', trips: 25, passengers: 50, from: 'Ringwood', to: 'Southern Cross', spots: 4, timeDiff: '-5 mins', date: '2023-09-17 15:30'},
-      {id: '9', username: 'Ian', trips: 3, passengers: 8, from: 'Frankston', to: 'Southern Cross', spots: 2, timeDiff: '10 mins', date: '2023-09-18 12:00'},
-      {id: '10', username: 'Julia', trips: 30, passengers: 45, from: 'Dandenong', to: 'Southern Cross', spots: 3, timeDiff: '5 mins', date: '2023-09-19 17:15'},
+      {id: '1', username: 'Alice', trips: 15, passengers: 35, from: 'Flinders Street', to: 'Southern Cross', spots: 3, timeDiff: '5 mins', date: '2023-09-10 14:30', rating: 4.5},
+      {id: '2', username: 'Bob', trips: 8, passengers: 20, from: 'Richmond', to: 'Southern Cross', spots: 2, timeDiff: '10 mins', date: '2023-09-11 09:45', rating: 4.1},
+      {id: '3', username: 'Charlie', trips: 22, passengers: 48, from: 'Melbourne Central', to: 'Southern Cross', spots: 1, timeDiff: '-5 mins', date: '2023-09-12 11:15', rating: 3.5},
+      {id: '4', username: 'Diana', trips: 5, passengers: 12, from: 'North Melbourne', to: 'Southern Cross', spots: 4, timeDiff: '5 mins', date: '2023-09-13 16:00', rating: 4.8},
+      {id: '5', username: 'Ethan', trips: 12, passengers: 28, from: 'South Yarra', to: 'Southern Cross', spots: 2, timeDiff: '-5 mins', date: '2023-09-14 08:30', rating: 4.4},
+      {id: '6', username: 'Fiona', trips: 18, passengers: 40, from: 'Caulfield', to: 'Southern Cross', spots: 3, timeDiff: '10 mins', date: '2023-09-15 13:45',rating: 4.1},
+      {id: '7', username: 'George', trips: 7, passengers: 15, from: 'Box Hill', to: 'Southern Cross', spots: 1, timeDiff: '5 mins', date: '2023-09-16 10:20', rating: 2.5},
+      {id: '8', username: 'Hannah', trips: 25, passengers: 50, from: 'Ringwood', to: 'Southern Cross', spots: 4, timeDiff: '-5 mins', date: '2023-09-17 15:30',rating: 4.8},
+      {id: '9', username: 'Ian', trips: 3, passengers: 8, from: 'Frankston', to: 'Southern Cross', spots: 2, timeDiff: '10 mins', date: '2023-09-18 12:00', rating: 4.3},
+      {id: '10', username: 'Julia', trips: 30, passengers: 45, from: 'Dandenong', to: 'Southern Cross', spots: 3, timeDiff: '5 mins', date: '2023-09-19 17:15',rating: 4.2},
     ];
     
     
@@ -51,6 +52,7 @@ const LookRidePath = ({navigation, route}) => {
     const handleConfirm = (date) => {
       console.warn("A date has been picked: ", date);
       setSelectedDate(date)
+      setShowTrips(true)
       hideDatePicker();
     };
   
@@ -95,42 +97,45 @@ const LookRidePath = ({navigation, route}) => {
             {selectedDate instanceof Date ? selectedDate.toLocaleString() : 'No date selected'}
           </Text>
         </View>
+        
         <ScrollView contentContainerStyle={styles.scrollView}>
-       
+       {showTrips &&
         <FlatList
-  data={bookings}
-  keyExtractor={item => item.id}
-  renderItem={({item}) => (
-    <TouchableOpacity 
-      style={styles.bookingItem}
-      onPress={() => setSelectedBooking(item.id)}
-    >
-      <View style={styles.bookingContent}>
-        <View style={styles.userInfo}>
-          <Text style={styles.username}>{item.username}</Text>
-          <Text style={styles.tripInfo}>
-            {item.trips} trips | {item.passengers} passengers
-          </Text>
-        </View>
-        <View style={styles.routeInfo}>
-          <Text style={styles.route}>{item.from} → {item.to}</Text>
-          <Text style={styles.dateTime}>{item.date}</Text>
-        </View>
-        <View style={styles.tripDetails}>
-          <Text style={styles.spots}>{item.spots} spot{item.spots !== 1 ? 's' : ''} available</Text>
-          <Text style={[styles.timeDiff, {color: item.timeDiff.includes('-') ? 'red' : 'green'}]}>
-            {item.timeDiff}
-          </Text>
-        </View>
-      </View>
-      <View style={styles.radioContainer}>
-        <View style={styles.radioOuter}>
-          {selectedBooking === item.id && <View style={styles.radioInner} />}
-        </View>
-      </View>
-    </TouchableOpacity>
-  )}
-/>
+        data={bookings}
+        keyExtractor={item => item.id}
+        renderItem={({item}) => (
+          <TouchableOpacity 
+            style={styles.bookingItem}
+            onPress={() => setSelectedBooking(item.id)}
+          >
+            <View style={styles.bookingContent}>
+              <View style={styles.userInfo}>
+                <Text style={styles.username}>{item.username}</Text>
+                <Text style={styles.tripInfo}>
+                  {item.trips} trips | {item.passengers} passengers
+                </Text>
+               
+              </View>
+              <View style={styles.routeInfo}>
+                <Text style={styles.route}>{item.from} → {item.to}</Text>
+                <Text style={styles.dateTime}>{item.date}</Text>
+              </View>
+              <View style={styles.tripDetails}>
+                <Text style={styles.spots}>{item.spots} spot{item.spots !== 1 ? 's' : ''} available | {item.rating.toFixed(1)} Rating</Text>
+                <Text style={[styles.timeDiff, {color: item.timeDiff.includes('-') ? 'red' : 'green'}]}>
+                  {item.timeDiff}
+                </Text>
+              </View>
+            </View>
+            <View style={styles.radioContainer}>
+              <View style={styles.radioOuter}>
+                {selectedBooking === item.id && <View style={styles.radioInner} />}
+              </View>
+            </View>
+          </TouchableOpacity>
+        )}
+      />
+}
        
         </ScrollView>
         <TouchableOpacity 

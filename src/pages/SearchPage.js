@@ -7,7 +7,12 @@ import defaultStyles from '../utilities/defaultStyles';
 import MapView, {Marker, Polyline} from 'react-native-maps';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import axios from 'axios'
-const API_KEY = 'AIzaSyDbqGWohsyJJiJRIWytGjJrG7GCchk5LLE';
+import configData from '../../config.json'
+
+
+// Replace the hardcoded API key with the imported variable
+const API_KEY =configData.API_KEY;
+// const API_KEY = 'AIzaSyDbqGWohsyJJiJRIWytGjJrG7GCchk5LLE';
 
 const {width, height} = Dimensions.get('window');
 
