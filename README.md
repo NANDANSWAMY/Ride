@@ -1,2 +1,3 @@
 # Please use master branch
-![Login Page](1.png "Image Title")
+
+<img src="1.png" alt="Login Page" width="300" height="200">
