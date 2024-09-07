@@ -15,6 +15,7 @@ A mobile application built with [React Native](https://reactnative.dev/). This p
 - [Xcode Setup](#xcode-setup)
 - [Android Studio Setup](#android-studio-setup)
 - [Troubleshooting](#troubleshooting)
+- [Screenshots](#screenshots)
 
 ## Installation
 
@@ -63,7 +64,8 @@ xcode-select --install
 1. If you encounter node_modules related issues, try deleting the folder and running npm install again.
 2. For iOS build issues, try cleaning the build folder in Xcode and rebuilding.
 3. For Android build issues, try cleaning the project in Android Studio and rebuilding.
-4. 
+
+## Screenshots
 
 
 
