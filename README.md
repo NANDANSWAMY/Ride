@@ -8,6 +8,16 @@ A mobile application built with [React Native](https://reactnative.dev/). This p
 - Form a route betwen Pick and Drop location using Directions API
 - Choose to be a rider or a tag along
 
+## Data sets used for Dashboard
+
+1. [Annual Regional Train Station Entries 2023-24](https://discover.data.vic.gov.au/dataset/annual-regional-train-patronage-station-entries)
+2. [Annual Metropolitan Train Station Entries 2023-24](https://discover.data.vic.gov.au/dataset/annual-metropolitan-train-station-patronage-station-entries)
+3. [Train Service Passenger Counts 2023-2024](https://discover.data.vic.gov.au/dataset/annual-regional-train-patronage-station-entries)
+4.[Victorian Integrated Survey of Travel and Activity (VISTA)-1](https://vicroadsopendatastorehouse.vicroads.vic.gov.au/opendata/VISTA_data/VISTA_2012-20_LGA_V1/Persons_VISTA_1220_LGA_V1.csv)
+5. [Victorian Integrated Survey of Travel and Activity (VISTA)-2](https://vicroadsopendatastorehouse.vicroads.vic.gov.au/opendata/VISTA_data/VISTA_2012-20_LGA_V1/Trips_VISTA_1220_LGA_V1.csv)
+6. [Road Crash-1](https://vicroadsopendatastorehouse.vicroads.vic.gov.au/opendata/Road_Safety/PERSON.csv)
+7. [Road Crash-2](https://vicroadsopendatastorehouse.vicroads.vic.gov.au/opendata/Road_Safety/ACCIDENT_LOCATION.csv)
+
 
 ## Table of Contents
 
@@ -18,7 +28,9 @@ A mobile application built with [React Native](https://reactnative.dev/). This p
 - [Troubleshooting](#troubleshooting)
 - [Dependencies](#dependencies)
 - [Prerequisites](#prerequisites)
+- [Demo](#demo)
 - [Screenshots](#screenshots)
+
 
 
 ## Installation
@@ -87,6 +99,12 @@ To install React Native CLI globally, run:
 npm install -g react-native-cli
 ```
 
+
+## Demo 
+- [Get on Track](https://youtu.be/-D8F5XhiRzQ)
+- [Presentation slides](https://docs.google.com/presentation/d/1DOyUSo8E8Fkbq-nRnPq4Tx1BI8F8BptdETz1kkyijug/edit?usp=sharing)
+- [Presentation video](https://youtu.be/6QWxn8E0wWU)
+- [Power BI Dashboard](https://drive.google.com/file/d/1nNI3HGPZ_CAVPkNUl7QIxLdybMunQrbL/view?usp=sharing)
 ## Screenshots
 
 
@@ -155,14 +173,14 @@ npm install -g react-native-cli
 </figure>
 
 <figure>
-  <img src="src/assets/Screenshot 2024-09-08 at 3.07.25 PM.png" alt="Login Page" width="400" height="800">
+  <img src="src/assets/4.png" alt="Login Page" width="400" height="800">
   <figcaption>Fig.16 - Power BI Home page</figcaption>
 </figure>
 <figure>
-  <img src="src/assets/Screenshot 2024-09-08 at 3.08.55 PM.png" alt="Login Page" width="400" height="800">
+  <img src="src/assets/3.png" alt="Login Page" width="400" height="800">
   <figcaption>Fig.17 - Power BI - Page 1 </figcaption>
 </figure>
 <figure>
-  <img src="src/assets/Screenshot 2024-09-08 at 3.09.09 PM.png" alt="Login Page" width="400" height="800">
+  <img src="src/assets/2.png" alt="Login Page" width="400" height="800">
   <figcaption>Fig.18 - Power BI Page 2</figcaption>
 </figure>
