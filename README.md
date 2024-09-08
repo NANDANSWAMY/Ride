@@ -184,3 +184,7 @@ npm install -g react-native-cli
   <img src="src/assets/2.png" alt="Login Page" width="400" height="800">
   <figcaption>Fig.18 - Power BI Page 2</figcaption>
 </figure>
+<figure>
+  <img src="src/assets/5.png" alt="Login Page" width="400" height="800">
+  <figcaption>Fig.18 - Power BI Page 3</figcaption>
+</figure>
