@@ -4,9 +4,10 @@ A mobile application built with [React Native](https://reactnative.dev/). This p
 
 ## Features
 
-- Feature 1: Example feature description
-- Feature 2: Example feature description
-- Feature 3: Example feature description
+- Choose Pick and Drop location via GooglePlacesAutoComplete component
+- Form a route betwen Pick and Drop location using Directions API
+- Choose to be a rider or a tag along
+
 
 ## Table of Contents
 
@@ -151,4 +152,17 @@ npm install -g react-native-cli
 <figure>
   <img src="src/assets/Simulator Screenshot - iPhone 15 - 2024-09-08 at 00.14.27.png" alt="Login Page" width="400" height="800">
   <figcaption>Fig.15 - My profile page - Scrolled Down</figcaption>
+</figure>
+
+<figure>
+  <img src="src/assets/Screenshot 2024-09-08 at 3.07.25 PM.png" alt="Login Page" width="400" height="800">
+  <figcaption>Fig.16 - Power BI Home page</figcaption>
+</figure>
+<figure>
+  <img src="src/assets/Screenshot 2024-09-08 at 3.08.55 PM.png" alt="Login Page" width="400" height="800">
+  <figcaption>Fig.17 - Power BI - Page 1 </figcaption>
+</figure>
+<figure>
+  <img src="src/assets/Screenshot 2024-09-08 at 3.09.09 PM.png" alt="Login Page" width="400" height="800">
+  <figcaption>Fig.18 - Power BI Page 2</figcaption>
 </figure>
